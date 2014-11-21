@@ -1,0 +1,50 @@
+NAME
+    Dancer2::Serializer::CBOR - CBOR serializer for Dancer2
+
+VERSION
+    version 0.000001
+
+SYNOPSIS
+        package MyApp::API::CBOR;
+        use Dancer2;
+        set serializer => 'CBOR';
+
+        get '/view/user/:id' => sub {
+            my $id = params->{'id'};
+
+            return { user => get_id($id) };
+        };
+
+DESCRIPTION
+    This serializer allows to serialize and deserialize automatically the
+    CBOR (Concise Binary Object Representation) structure.
+
+    It requires CBOR::XS.
+
+METHODS
+  serialize
+    Serialize a Perl data structure to a CBOR structure.
+
+  deserialize
+    Deserialize a CBOR structure to a Perl data structure.
+
+  content_type
+    "application/cbor".
+
+CREDIT
+    The test is based on code David Zurborg has written.
+
+SEE ALSO
+    *   CBOR::XS
+
+    *   RFC7049
+
+AUTHOR
+    Sawyer X <xsawyerx@cpan.org>
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2014 by Sawyer X.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
+
